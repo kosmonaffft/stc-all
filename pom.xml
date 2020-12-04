@@ -18,5 +18,6 @@
         <module>reflection-example</module>
         <module>classloaders-example</module>
         <module>network-example</module>
+        <module>streams-example</module>
     </modules>
 </project>
