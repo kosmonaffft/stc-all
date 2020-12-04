@@ -19,5 +19,6 @@
         <module>classloaders-example</module>
         <module>network-example</module>
         <module>streams-example</module>
+        <module>threads-philosophers-example</module>
     </modules>
 </project>
