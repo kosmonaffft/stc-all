@@ -20,6 +20,7 @@
         <module>network-example</module>
         <module>streams-example</module>
         <module>threads-philosophers-example</module>
+        <module>threads-recursive-action-example</module>
         <module>threads-recursive-task-example</module>
     </modules>
 </project>
