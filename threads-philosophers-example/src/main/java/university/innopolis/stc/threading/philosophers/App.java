@@ -1,4 +1,4 @@
-package test;
+package university.innopolis.stc.threading.philosophers;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
