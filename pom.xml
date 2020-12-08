@@ -22,5 +22,6 @@
         <module>threads-philosophers-example</module>
         <module>threads-recursive-action-example</module>
         <module>threads-recursive-task-example</module>
+        <module>threads-threading-example</module>
     </modules>
 </project>
