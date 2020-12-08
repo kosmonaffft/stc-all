@@ -1,4 +1,4 @@
-package university.innopolis.stc.threading.philosophers;
+package university.innopolis.stc.threading;
 
 import com.google.common.base.Stopwatch;
 
@@ -34,10 +34,13 @@ public class App {
         s.stop();
         System.out.println(s.toString());
 
-        for (int i = 0; i < threadsCount; ++i) {
-            int start = i;
-            Thread thread = new Thread(() -> process(ints, start, threadsCount));
-            threads[i] = thread;
+        final double[] x = new double[] {0.0};
+        for (int[] i = new int[]{0}; i[0] < threadsCount; ++i[0]) {
+            Thread thread = new Thread(() -> {
+                process(ints, i[0], threadsCount);
+                x[0] = 10.0;
+            });
+            threads[i[0]] = thread;
         }
 
         s = Stopwatch.createStarted();
@@ -62,5 +65,7 @@ public class App {
         }
         s.stop();
         System.out.println(s.toString());
+        
+        executorService.shutdown();
     }
 }
