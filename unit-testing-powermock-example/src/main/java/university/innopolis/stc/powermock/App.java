@@ -1,7 +1,4 @@
-package test;
-
-import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
+package university.innopolis.stc.powermock;
 
 /**
  * Hello world!
@@ -9,5 +6,6 @@ import java.lang.reflect.InvocationTargetException;
 public class App {
 
     public static void main(String[] args) {
+        System.out.println("Hello World!");
     }
 }
