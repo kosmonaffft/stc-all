@@ -8,6 +8,12 @@ import java.util.Objects;
 
 public class UsersService {
 
+    private final UsersRepository userRepository;
+
+    public UsersService(UsersRepository usersRepository) {
+        this.userRepository = usersRepository;
+    }
+
     public void changePassword(Long userId,
                                String oldPassword,
                                String newPassword,
@@ -16,19 +22,19 @@ public class UsersService {
             throw new RuntimeException("Password mismatch!");
         }
 
-        User user = UsersRepository.find(userId, null);
+        User user = userRepository.find(userId, null);
         if (!PasswordEncoder.matches(oldPassword, user.getEncodedPassword())) {
             throw new RuntimeException("Invalid password!");
         }
 
         String s = PasswordEncoder.encode(newPassword);
         user.setEncodedPassword(s);
-        new UsersRepository().save(user);
+        userRepository.save(user);
     }
 
     public boolean authorize(String login,
                              String password) {
-        User u = UsersRepository.find(null, login);
+        User u = userRepository.find(null, login);
         return PasswordEncoder.matches(password, u.getEncodedPassword());
     }
 }
