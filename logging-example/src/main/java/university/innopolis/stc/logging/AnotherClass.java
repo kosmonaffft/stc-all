@@ -1,4 +1,4 @@
-package xyz.kosmonaffft;
+package university.innopolis.stc.logging;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
