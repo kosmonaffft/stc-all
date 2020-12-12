@@ -41,5 +41,6 @@
         <module>unit-testing-powermock-example</module>
         <module>unit-testing-refactoring-task</module>
         <module>unit-testing-arquilian-example</module>
+        <module>logging-example</module>
     </modules>
 </project>
