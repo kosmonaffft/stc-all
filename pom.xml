@@ -40,5 +40,6 @@
         <module>unit-testing-mockito-example</module>
         <module>unit-testing-powermock-example</module>
         <module>unit-testing-refactoring-task</module>
+        <module>unit-testing-arquilian-example</module>
     </modules>
 </project>
