@@ -1,9 +1,9 @@
 package university.innopolis.stc.logging;
 
-import lombok.Cleanup;
 import lombok.SneakyThrows;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.slf4j.bridge.SLF4JBridgeHandler;
 
 /**
  * Hello world!
@@ -14,16 +14,14 @@ public class App {
 
     @SneakyThrows
     public static void main(String[] args) {
-        logger.error("Hello, world!!!");
-        logger.trace("Trace from app");
+        SLF4JBridgeHandler.removeHandlersForRootLogger();
+        SLF4JBridgeHandler.install();
+
+        logger.error("I'm error");
+        logger.warn("I'm warn");
+        logger.info("I'm info");
+        logger.debug("I'm debug");
+        logger.trace("I'm trace");
         AnotherClass.method();
-        AnotherClass c1 = new AnotherClass("f", "c1");
-        AnotherClass c2 = new AnotherClass("f", "c2");
-        System.out.println(c1.equals(c2));
-
-        new AnotherClass("null", "");
-        System.out.println(c1.toString());
-
-        @Cleanup("getField") AnotherClass a = new AnotherClass("", "");
     }
 }
