@@ -1,0 +1,38 @@
+version: "3.9"
+services:
+  postgres:
+    image: postgres:13.1-alpine
+    ports:
+      - 5555:5432
+    environment:
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - 404.html:/opt/myapp/404.html
+
+
+  pgadmin:
+    image: dpage/pgadmin4:4.29
+    ports:
+      - 5556:80
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@a.ru
+      PGADMIN_DEFAULT_PASSWORD: admin
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+    depends_on:
+      - postgres
+
+  myapp:
+    image: docker-example
+    build: .
+    ports:
+      - 5557:8080
+      - 5558:9990
+    depends_on:
+      - postgres
+      - pgadmin
+
+volumes:
+  postgres_data:
+  pgadmin_data:
