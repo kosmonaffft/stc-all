@@ -37,4 +37,9 @@ public class Operator implements AstNode {
     public void setRight(AstNode right) {
         this.right = right;
     }
+
+    @Override
+    public void accept(Visitor v) {
+        v.visit(this);
+    }
 }

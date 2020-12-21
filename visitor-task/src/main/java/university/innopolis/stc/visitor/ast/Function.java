@@ -28,4 +28,9 @@ public class Function implements AstNode {
     public void setArguments(Collection<AstNode> arguments) {
         this.arguments = arguments;
     }
+
+    @Override
+    public void accept(Visitor v) {
+        v.visit(this);
+    }
 }

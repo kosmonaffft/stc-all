@@ -1,15 +1,15 @@
 package university.innopolis.stc.visitor.calculator;
 
 import org.junit.jupiter.api.Test;
-import university.innopolis.stc.visitor.ast.Variable;
 import university.innopolis.stc.visitor.ast.AstNode;
 import university.innopolis.stc.visitor.ast.Function;
 import university.innopolis.stc.visitor.ast.Operator;
 import university.innopolis.stc.visitor.ast.Value;
+import university.innopolis.stc.visitor.ast.Variable;
 
-import java.util.Collections;
 import java.util.HashMap;
 
+import static java.util.Collections.singletonList;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class CalculatorTest {
@@ -29,8 +29,8 @@ class CalculatorTest {
 
         AstNode r = new Operator(
                 '+',
-                new Function("sin", Collections.singletonList(new Variable("x"))),
-                new Function("cos", Collections.singletonList(new Variable("y")))
+                new Function("sin", singletonList(new Variable("x"))),
+                new Function("cos", singletonList(new Variable("y")))
         );
         AstNode expression = new Operator('/', l, r);
 
@@ -40,5 +40,9 @@ class CalculatorTest {
         }});
 
         assertTrue(result - (-165.156619577) < 0.001);
+
+        ToStringVisitor toStringVisitor = new ToStringVisitor();
+        expression.accept(toStringVisitor);
+        System.out.println(toStringVisitor.getResult());
     }
 }

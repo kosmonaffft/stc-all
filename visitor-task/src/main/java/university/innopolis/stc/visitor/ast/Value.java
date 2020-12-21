@@ -15,4 +15,9 @@ public class Value implements AstNode {
     public void setValue(double value) {
         this.value = value;
     }
+
+    @Override
+    public void accept(Visitor v) {
+        v.visit(this);
+    }
 }
