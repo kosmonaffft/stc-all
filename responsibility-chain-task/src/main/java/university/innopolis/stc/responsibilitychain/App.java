@@ -1,4 +1,4 @@
-package xyz.kosmonaffft;
+package university.innopolis.stc.responsibilitychain;
 
 /**
  * Hello world!

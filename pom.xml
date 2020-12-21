@@ -43,5 +43,6 @@
         <module>logging-example</module>
         <module>docker-example</module>
         <module>visitor-task</module>
+        <module>responsibility-chain-task</module>
     </modules>
 </project>
