@@ -28,21 +28,21 @@ public class NativeMultiThreadExecutor implements LifeExecutor {
 
     private class ExecutorInternal {
 
-        private CyclicBarrier calculationsBarrier;
+        private final CyclicBarrier calculationsBarrier;
 
-        private CyclicBarrier swapBarrier;
+        private final CyclicBarrier swapBarrier;
+
+        private final int xsize;
+
+        private final int ysize;
+
+        private final long iterationsCount;
+
+        private final int actualThreadsCount;
 
         private byte[] oldState;
 
         private byte[] newState;
-
-        private int xsize;
-
-        private int ysize;
-
-        private long iterationsCount;
-
-        private int actualThreadsCount;
 
         ExecutorInternal(LifeSnapshot startState, long iterationsCount) {
             final byte[] data = startState.getData();
@@ -72,9 +72,9 @@ public class NativeMultiThreadExecutor implements LifeExecutor {
 
         private class ThreadImpl extends Thread {
 
-            private int threadIndex;
+            private final int threadIndex;
 
-            private long iterationsCount;
+            private final long iterationsCount;
 
             ThreadImpl(int threadIndex, long iterationsCount) {
                 this.threadIndex = threadIndex;
