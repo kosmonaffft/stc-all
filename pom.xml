@@ -44,5 +44,6 @@
         <module>docker-example</module>
         <module>visitor-task</module>
         <module>responsibility-chain-task</module>
+        <module>life-game</module>
     </modules>
 </project>
