@@ -1,7 +1,6 @@
 package university.innopolis.stc.responsibilitychain;
 
 import org.junit.jupiter.api.Test;
-import university.innopolis.stc.responsibilitychain.RequestProcessor;
 
 import java.util.HashMap;
 import java.util.Map;
