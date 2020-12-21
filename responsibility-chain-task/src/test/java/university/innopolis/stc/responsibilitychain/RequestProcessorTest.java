@@ -2,6 +2,7 @@ package university.innopolis.stc.responsibilitychain;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,11 +12,12 @@ class RequestProcessorTest {
 
     @Test
     void processRequest() {
-        final HashMap<String, String> request = new HashMap<String, String>() {{
+        Map<String, String> request = new HashMap<String, String>() {{
             put("user", "root");
             put("password", "root");
             put("value", "test");
         }};
+        request = Collections.unmodifiableMap(request);
 
         final RequestProcessor requestProcessor = new RequestProcessor();
         final Map<String, String> response = requestProcessor.processRequest(request);
