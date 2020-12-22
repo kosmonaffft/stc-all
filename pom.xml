@@ -45,5 +45,6 @@
         <module>visitor-task</module>
         <module>responsibility-chain-task</module>
         <module>life-game</module>
+        <module>forum-db</module>
     </modules>
 </project>
