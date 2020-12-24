@@ -15,6 +15,7 @@ class JdbcTest extends BaseTest {
 
     @BeforeAll
     public static void init() throws IOException {
+        BaseTest.init();
         jdbc = new JdbcFactory().getJdbc();
     }
 
