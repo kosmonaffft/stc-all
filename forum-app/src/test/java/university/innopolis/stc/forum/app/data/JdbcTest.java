@@ -15,22 +15,20 @@ class JdbcTest extends BaseTest {
 
     @BeforeAll
     public static void init() throws IOException {
-        BaseTest.init();
-        jdbc = JdbcFactory.instance.getJdbc();
+        jdbc = new JdbcFactory().getJdbc();
     }
 
     @Test
     void getUserByEmail() {
-        final Map<String, Object> userByEmail = jdbc.getUserByEmail("user1@mail.ru");
+        Map<String, Object> userByEmail = jdbc.getUserByLogin("login01");
         Assertions.assertNotNull(userByEmail);
     }
 
     @Test
     void insertUser() {
-        final Map<String, Object> user = jdbc.insertUser(new HashMap<String, Object>() {{
-            put("email", "test@test.org");
-            put("password_hash", "hash");
-            put("full_name", "Test Test Test");
+        Map<String, Object> user = jdbc.insertUser(new HashMap<String, Object>() {{
+            put("login", "test_login");
+            put("password", "asdfghjkl");
         }});
     }
 }

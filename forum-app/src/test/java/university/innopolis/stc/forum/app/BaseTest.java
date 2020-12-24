@@ -15,7 +15,6 @@ public abstract class BaseTest {
     protected static void init() throws IOException {
         embeddedPostgres = EmbeddedPostgres.builder().start();
         Flyway flyway = Flyway.configure()
-                .locations("classpath:/migrations")
                 .dataSource(embeddedPostgres.getPostgresDatabase()).load();
         flyway.migrate();
     }

@@ -5,13 +5,12 @@ import java.util.Map;
 public class JdbcImpl implements Jdbc {
 
     @Override
-    public Map<String, Object> getUserByEmail(String email) {
+    public Map<String, Object> getUserByLogin(String login) {
         throw new RuntimeException();
     }
 
     @Override
     public Map<String, Object> insertUser(Map<String, Object> user) {
         throw new RuntimeException();
-
     }
 }

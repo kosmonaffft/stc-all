@@ -1,9 +1,8 @@
 package university.innopolis.stc.forum.app.data;
 
-public enum JdbcFactory {
-    instance;
+public class JdbcFactory {
 
     public Jdbc getJdbc() {
-        return null;
+        throw new RuntimeException();
     }
 }
