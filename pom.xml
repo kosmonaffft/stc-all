@@ -46,5 +46,6 @@
         <module>responsibility-chain-task</module>
         <module>life-game</module>
         <module>forum-db</module>
+        <module>forum-app</module>
     </modules>
 </project>
