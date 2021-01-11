@@ -47,5 +47,6 @@
         <module>life-game</module>
         <module>forum-db</module>
         <module>forum-app</module>
+        <module>javaee-example</module>
     </modules>
 </project>
