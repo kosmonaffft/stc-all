@@ -45,7 +45,7 @@ public class User implements Serializable {
     private String password;
 
     @Column(name = "reg_date")
-    private LocalDate registrationDate;
+    private LocalDate date;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "role_id")

@@ -24,7 +24,7 @@ public class MainSimple {
         User newUser = null;
         newUser.setLogin(RandomStringUtils.randomAlphabetic(16));
         newUser.setPassword(RandomStringUtils.randomAlphabetic(16));
-        newUser.setRegistrationDate(LocalDate.now());
+        newUser.setDate(LocalDate.now());
         newUser.setRole(entityManager.find(Role.class, 1L));
         newUser.setStatus(entityManager.find(Status.class, 1L));
 
