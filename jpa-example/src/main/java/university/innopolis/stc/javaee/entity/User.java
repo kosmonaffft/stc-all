@@ -1,6 +1,5 @@
 package university.innopolis.stc.javaee.entity;
 
-import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -17,6 +16,7 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import java.io.Serializable;
 import java.time.LocalDate;
 
 @Entity
@@ -27,9 +27,10 @@ import java.time.LocalDate;
 @Table(name = "users")
 @NamedQueries({
         @NamedQuery(name = "select_all_users", query = "SELECT u FROM User u"),
-        @NamedQuery(name = "select_by_login", query = "SELECT u FROM User u WHERE u.login = :login")
+        @NamedQuery(name = "select_by_login", query = "SELECT u FROM User u WHERE u.login = :login"),
+        @NamedQuery(name = "select_co_author", query = "SELECT DISTINCT u2a1.user FROM User2Article u2a1 WHERE u2a1.article IN (SELECT DISTINCT u2a2.article FROM User2Article u2a2 WHERE u2a2.user.id = :userId)")
 })
-public class User {
+public class User implements Serializable {
 
     @Id
     @GeneratedValue(generator = "USER_ID_GENERATOR")

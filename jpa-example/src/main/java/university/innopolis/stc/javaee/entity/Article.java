@@ -23,7 +23,7 @@ import java.util.List;
 @ToString
 @Table(name = "articles")
 @IdClass(Article.ArticleId.class)
-public class Article {
+public class Article implements Serializable {
 
     @Getter
     @Setter
