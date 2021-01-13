@@ -4,6 +4,7 @@ import com.mongodb.MongoClient;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import lombok.Cleanup;
 import net.bytebuddy.utility.RandomString;
 import org.bson.Document;
 
@@ -17,7 +18,14 @@ import java.util.stream.StreamSupport;
 public class MongoExample {
 
     public static void main(String[] args) {
-        MongoClient mongoClient = new MongoClient("localhost", 27017);
+        @Cleanup MongoClient mongoClient = new MongoClient("localhost", 27017);
+        List<String> databases = getDatabases(mongoClient);
+        System.out.printf("Databases: %s%n", databases);
+
+//        insertRandomObject(mongoClient);
+
+        Collection<Map<String, Object>> byField1 = findBy(mongoClient, "passport.number", "KzT5dWnV");
+        System.out.printf("By field1: %s%n", byField1);
     }
 
     public static List<String> getDatabases(MongoClient mongoClient) {
@@ -31,37 +39,26 @@ public class MongoExample {
 
         Document subDocument = new Document();
         subDocument.put("id", UUID.randomUUID().toString());
-        subDocument.put("field1", RandomString.make());
-        subDocument.put("field2", RandomString.make());
+        subDocument.put("series", RandomString.make());
+        subDocument.put("number", RandomString.make());
 
         Document document = new Document();
         document.put("id", UUID.randomUUID().toString());
-        document.put("field1", RandomString.make());
-        document.put("field2", RandomString.make());
-        document.put("sub", subDocument);
+        document.put("firstName", RandomString.make());
+        document.put("secondName", RandomString.make());
+        document.put("passport", subDocument);
 
         collection.insertOne(document);
 
         return document;
     }
 
-    public static Collection<Map<String, Object>> findBy1(MongoClient mongoClient, String field) {
+    public static Collection<Map<String, Object>> findBy(MongoClient mongoClient, String field, String value) {
         MongoDatabase database = mongoClient.getDatabase("test");
         MongoCollection<Document> collection = database.getCollection("test_objects");
 
         Document document = new Document();
-        document.put("field1", field);
-        FindIterable<Document> documents = collection.find(document);
-
-        return StreamSupport.stream(documents.spliterator(), false).collect(Collectors.toList());
-    }
-
-    public Collection<Map<String, Object>> findByid(MongoClient mongoClient, String id) {
-        MongoDatabase database = mongoClient.getDatabase("test");
-        MongoCollection<Document> collection = database.getCollection("test_objects");
-
-        Document document = new Document();
-        document.put("id", id);
+        document.put(field, value);
         FindIterable<Document> documents = collection.find(document);
 
         return StreamSupport.stream(documents.spliterator(), false).collect(Collectors.toList());
