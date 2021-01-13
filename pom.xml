@@ -49,5 +49,6 @@
         <module>forum-app</module>
         <module>javaee-example</module>
         <module>jpa-example</module>
+        <module>redis-example</module>
     </modules>
 </project>
