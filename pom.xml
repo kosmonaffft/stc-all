@@ -50,5 +50,6 @@
         <module>javaee-example</module>
         <module>jpa-example</module>
         <module>redis-example</module>
+        <module>mongo-example</module>
     </modules>
 </project>
