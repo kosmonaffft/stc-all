@@ -3,6 +3,19 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean class="xyz.kosmonaffft.beans.HelloImpl" name="hello"></bean>
+    <bean class="xyz.kosmonaffft.beans.HelloImpl" name="hello" scope="prototype"/>
 
+    <bean class="xyz.kosmonaffft.wiring.xml.BeanA" name="beanA">
+        <property name="beanB" ref="beanB"/>
+    </bean>
+
+    <bean class="xyz.kosmonaffft.wiring.xml.BeanB" name="beanB">
+        <constructor-arg ref="beanC"/>
+    </bean>
+
+    <bean class="xyz.kosmonaffft.wiring.xml.BeanC" name="beanC" autowire="byType"/>
+
+    <bean class="xyz.kosmonaffft.wiring.xml.BeanD" name="beanD" autowire="constructor"/>
+
+    <bean class="xyz.kosmonaffft.wiring.xml.BeanE" name="beanE"/>
 </beans>
