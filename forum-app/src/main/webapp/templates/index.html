@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html>
+<head>
+    <title>Hello world</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<div th:replace="common :: header"></div>
+
+<h1 th:text="'Hello, ' + ${name} + '!!!'">Hello, world!!!</h1>
+
+<h3 th:each="item : ${list}" th:text="${item}">List item.</h3>
+
+<h1 th:if="${name} == 'Anton'">I'm a teacher!!!</h1>
+<h1 th:unless="${name} == 'Anton'">I'm a student!!!</h1>
+</body>
+</html>

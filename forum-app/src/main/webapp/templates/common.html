@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<th:block th:fragment="header">
+    <link rel="stylesheet" href="webjars/fomantic-ui/dist/semantic.css">
+    <script type="text/javascript" src="webjars/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="webjars/fomantic-ui/dist/semantic.js"></script>
+</th:block>
+
+<div th:fragment="footer">
+    <h1>I am the FOOTER!!!!1111</h1>
+</div>
+
+<div th:fragment="article_container(text)" style="height: 100px;">
+    <h1 th:text="${text}" style="background-color: lightcoral;">Text</h1>
+</div>
+</body>
+</html>
