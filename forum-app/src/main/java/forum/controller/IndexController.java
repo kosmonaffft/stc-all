@@ -17,11 +17,14 @@ public class IndexController {
     @GetMapping(value = "/")
     public ModelAndView index() {
         ModelAndView result = new ModelAndView("index");
-        result.getModelMap().addAttribute("name", "Ivan");
+        result.getModelMap().addAttribute("name", "Anton");
         result.getModelMap().addAttribute("list", new ArrayList<String>() {{
             add("first");
             add("second");
             add("third");
+            add("fourth");
+            add("fourth");
+            add("fourth");
             add("fourth");
         }});
         return result;

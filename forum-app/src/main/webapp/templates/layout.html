@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Forum APP</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+
+<link rel="stylesheet" href="http://127.0.0.1:8080/forum-app-0.0/webjars/fomantic-ui/dist/semantic.css">
+<script type="text/javascript" src="http://127.0.0.1:8080/forum-app-0.0/webjars/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="http://127.0.0.1:8080/forum-app-0.0/webjars/fomantic-ui/dist/semantic.js"></script>
+
+<style>
+    body {
+        width: 100vw;
+        height: 100vh;
+
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-template-rows: auto 1fr;
+    }
+
+    header.ui.inverted.menu {
+        margin-top: unset;
+        margin-bottom: unset;
+
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+
+    nav.ui.vertical.menu {
+        margin-bottom: unset;
+        margin-top: unset;
+    }
+
+    main {
+        background-color: #DADADA;
+        padding: 1rem;
+        display: grid;
+        grid-template-rows: auto auto 1fr;
+    }
+</style>
+
+<header class="ui inverted menu">
+    <a class="right item" th:href="@{/login}">Logout</a>
+</header>
+
+<nav class="ui vertical menu">
+    <a class="item" th:href="@{/sections/1}">Section 1</a>
+    <a class="item" th:href="@{/sections/1}">Section 2</a>
+    <a class="item" th:href="@{/sections/1}">Section 3</a>
+    <a class="item" th:href="@{/sections/1}">Section 4</a>
+</nav>
+
+<main>
+    <h3 class="ui dividing header">Articles</h3>
+    <div>
+        <button class="ui basic tiny primary button">Add</button>
+        <button class="ui basic tiny primary button">Edit</button>
+        <button class="ui basic tiny negative disabled button">Delete</button>
+    </div>
+    <table class="ui table">
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>date</th>
+            <th>text</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="item : ${articles}">
+            <th th:text="${item.id.articleId}">1</th>
+            <th th:text="${item.date}">1</th>
+            <th th:text="${item.text}">1</th>
+        </tr>
+        </tbody>
+    </table>
+</main>
+
+</body>
+</html>

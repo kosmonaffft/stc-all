@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Thymeleaf templates</title>
+</head>
+<body>
+
+<div th:replace="~{fragments/simple/header :: header}">Header placeholder!!!</div>
+
+<h1>I'm a start page!!!</h1>
+
+<a th:href="@{/datatable}">Data table example</a>
+
+<div th:insert="~{fragments/simple/footer :: footer}">Footer placeholder</div>
+
+</body>
+</html>

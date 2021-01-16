@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Datatable example</title>
+</head>
+<body>
+
+<h1>The HashMap based table!!!</h1>
+<div th:replace="~{fragments/datatable :: datatable(columns=${columns1}, rows=${data1})}">
+    Datatable placeholder
+</div>
+<br/><br/><br/>
+
+<h1>The Object based table!!!</h1>
+<div th:replace="~{fragments/datatable :: datatable(columns=${columns2}, rows=${data2})}">
+    Datatable placeholder
+</div>
+
+</body>
+</html>

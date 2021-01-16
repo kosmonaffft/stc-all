@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<th:block th:fragment="datatable(rows, columns)">
+    <p th:text="'Всего записей: ' + ${rows.size()}"></p>
+    <table>
+        <thead>
+        <tr>
+            <th th:each="column: ${columns}" th:text="${column.name}">Column header placeholder</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="row: ${rows}">
+            <td th:each="column: ${columns}"
+                th:text="${row[column.data]}">Data placeholder
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</th:block>
+</body>
+</html>

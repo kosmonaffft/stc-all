@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html xmlns:thy="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Articles</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body>
 
-<link rel="stylesheet" href="../../webjars/fomantic-ui/dist/semantic.css">
-<script type="text/javascript" src="../../webjars/jquery/dist/jquery.js"></script>
-<script type="text/javascript" src="../../webjars/fomantic-ui/dist/semantic.js"></script>
+<link rel="stylesheet" href="http://127.0.0.1:8080/forum-app-0.0/webjars/fomantic-ui/dist/semantic.css">
+<script type="text/javascript" src="http://127.0.0.1:8080/forum-app-0.0/webjars/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="http://127.0.0.1:8080/forum-app-0.0/webjars/fomantic-ui/dist/semantic.js"></script>
 
 <style>
     body {
@@ -42,14 +42,14 @@
 </style>
 
 <header class="ui inverted menu">
-    <a class="right item" thy:href="@{/login}">Logout</a>
+    <a class="right item" th:href="@{/login}">Logout</a>
 </header>
 
 <nav class="ui vertical menu">
-    <a class="item" thy:href="@{/sections/1}">Section 1</a>
-    <a class="item" thy:href="@{/sections/1}">Section 2</a>
-    <a class="item" thy:href="@{/sections/1}">Section 3</a>
-    <a class="item" thy:href="@{/sections/1}">Section 4</a>
+    <a class="item" th:href="@{/sections/1}">Section 1</a>
+    <a class="item" th:href="@{/sections/1}">Section 2</a>
+    <a class="item" th:href="@{/sections/1}">Section 3</a>
+    <a class="item" th:href="@{/sections/1}">Section 4</a>
 </nav>
 
 <main>
@@ -68,32 +68,10 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <th>1</th>
-            <th>2</th>
-            <th>3</th>
-        </tr>
-        <tr>
-            <th>1</th>
-            <th>2</th>
-            <th>3</th>
-        </tr>
-        <tr>
-            <th>1</th>
-            <th>2</th>
-            <th>3333333333333333333333333333333333333333333333
-            rrrrrrrrrrrrrrrrrrrrrrr
-            gggggggggggggggggggggggggggggggggggg</th>
-        </tr>
-        <tr>
-            <th>1</th>
-            <th>2</th>
-            <th>3</th>
-        </tr>
-        <tr>
-            <th>1</th>
-            <th>2</th>
-            <th>3</th>
+        <tr th:each="item : ${articles}">
+            <th th:text="${item.id.articleId}">1</th>
+            <th th:text="${item.date}">1</th>
+            <th th:text="${item.text}">1</th>
         </tr>
         </tbody>
     </table>

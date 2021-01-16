@@ -40,7 +40,7 @@ public class WebConfiguration implements WebMvcConfigurer {
     @SneakyThrows(NamingException.class)
     public DataSource dataSource() {
         InitialContext context = new InitialContext();
-        DataSource dataSource = (DataSource) context.lookup("java:/forum");
+        DataSource dataSource = (DataSource) context.lookup("java:/ForumDS");
         return dataSource;
     }
 
