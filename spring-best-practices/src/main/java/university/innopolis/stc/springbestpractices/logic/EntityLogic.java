@@ -119,7 +119,11 @@ public class EntityLogic {
         if (pageRequest.isPresent() && example.isPresent()) {
             result = repository.findAll(example.get(), pageRequest.get()).getContent();
         } else
-            result = pageRequest.map(request -> repository.findAll(request).getContent()).orElseGet(() -> example.map(repository::findAll).orElseGet(repository::findAll));
+            result = pageRequest.map(request ->
+                    repository
+                            .findAll(request)
+                            .getContent())
+                    .orElseGet(() -> example.map(repository::findAll).orElseGet(repository::findAll));
         return result;
     }
 

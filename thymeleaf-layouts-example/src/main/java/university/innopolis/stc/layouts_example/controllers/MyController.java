@@ -1,14 +1,15 @@
 package university.innopolis.stc.layouts_example.controllers;
 
 import lombok.val;
+import org.springframework.boot.context.properties.bind.DefaultValue;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import university.innopolis.stc.layouts_example.data.ServiceEndpoint;
 import university.innopolis.stc.layouts_example.datatable.ColumnDescription;
 
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.UUID;
 
 @Controller
@@ -20,30 +21,10 @@ public class MyController {
     }
 
     @GetMapping("datatable")
-    public String datatable(Model model) {
-        val columns1 = Arrays.asList(
-                new ColumnDescription("id", "id"),
-                new ColumnDescription("Имя", "name"),
-                new ColumnDescription("Дата рождения", "birthdayDate")
-        );
-        val data1 = Arrays.asList(
-                new HashMap<String, String>() {{
-                    put("id", "1");
-                    put("name", "Антон1");
-                    put("birthdayDate", "1989");
-                }},
-                new HashMap<String, String>() {{
-                    put("id", "2");
-                    put("name", "Антон2");
-                    put("birthdayDate", "1990");
-                }},
-                new HashMap<String, String>() {{
-                    put("id", "3");
-                    put("name", "Антон3");
-                    put("birthdayDate", "1991");
-                }}
-        );
-
+    public String datatable(
+            @RequestParam("page") @DefaultValue("0") Integer page,
+            Model model
+    ) {
         val columns2 = Arrays.asList(
                 new ColumnDescription("Уникальный идентификатор", "id"),
                 new ColumnDescription("Наименование", "name"),
@@ -58,9 +39,7 @@ public class MyController {
                 new ServiceEndpoint(UUID.randomUUID(), "Удалить пользователя", "/users/{id}", "DELETE")
         );
 
-        model.addAttribute("columns1", columns1);
-        model.addAttribute("data1", data1);
-
+        model.addAttribute("page", page);
         model.addAttribute("columns2", columns2);
         model.addAttribute("data2", data2);
 

@@ -6,14 +6,8 @@
 </head>
 <body>
 
-<h1>The HashMap based table!!!</h1>
-<div th:replace="~{fragments/datatable :: datatable(columns=${columns1}, rows=${data1})}">
-    Datatable placeholder
-</div>
-<br/><br/><br/>
-
 <h1>The Object based table!!!</h1>
-<div th:replace="~{fragments/datatable :: datatable(columns=${columns2}, rows=${data2})}">
+<div th:replace="~{fragments/datatable :: datatable(columns=${columns2}, rows=${data2}, currentPage=${page}, pagesCount=10, currentUrl='/datatable')}">
     Datatable placeholder
 </div>
 
