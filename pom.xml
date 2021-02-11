@@ -41,7 +41,6 @@
         <module>unit-testing-refactoring-task</module>
         <module>unit-testing-arquilian-example</module>
         <module>logging-example</module>
-        <module>docker-example</module>
         <module>visitor-task</module>
         <module>responsibility-chain-task</module>
         <module>life-game</module>
